@@ -1,4 +1,3 @@
-const webpack = require('webpack');
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
@@ -29,20 +28,9 @@ module.exports = {
       filename: 'index.html',
       path: outputPath
     }),
-    new ExtractTextPlugin('styles.css'),
-    new webpack.NamedModulesPlugin()
+    new ExtractTextPlugin('styles.css')
   ],
   resolve: {
     extensions: ['*', '.js', '.jsx']
-  },
-  devtool: 'inline-source-map',
-  devServer: {
-    contentBase: outputPath,
-    port: 3000,
-    historyApiFallback: true,
-    inline: true,
-    headers: { 'Access-Control-Allow-Origin': '*' },
-    https: false,
-    disableHostCheck: true
   }
 };
